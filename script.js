@@ -3,7 +3,6 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('.show-modal');
-console.log(btnsOpenModal);
 
 // open modal
 const openModal = function () {
@@ -27,3 +26,10 @@ btnCloseModal.addEventListener('click', closeModal);
 
 // close modal when clicked on overaly
 overlay.addEventListener('click', closeModal);
+
+// listening for esc keypress
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
